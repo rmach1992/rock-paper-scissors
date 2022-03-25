@@ -41,11 +41,12 @@ function playRound (playerSelection, computerSelection) {
 function game(){
     for (let i = 0; i < 5; i++){
         const playerSelection = prompt("Please type in either rock, paper or scissors.").toLowerCase();
-        console.log(playerSelection);
         //if (playerSelection !== "rock" || playerSelection !== "paper" || playerSelection !== "scissors") {
         //const playerSelection = prompt("Invalid output. Please type in either rock, paper or scissors.")
         //}
         const computerSelection = computerPlay();
+        console.log ("You selected", playerSelection);
+        console.log ("The computer selected", computerSelection);
         console.log(playRound (playerSelection, computerSelection));
     }
 }
