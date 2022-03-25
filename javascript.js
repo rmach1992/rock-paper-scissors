@@ -37,6 +37,17 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound (playerSelection, computerSelection));
+//Function to play a 5 round game
+function game(){
+    for (let i = 0; i < 5; i++){
+        const playerSelection = prompt("Please type in either rock, paper or scissors.").toLowerCase();
+        console.log(playerSelection);
+        //if (playerSelection !== "rock" || playerSelection !== "paper" || playerSelection !== "scissors") {
+        //const playerSelection = prompt("Invalid output. Please type in either rock, paper or scissors.")
+        //}
+        const computerSelection = computerPlay();
+        console.log(playRound (playerSelection, computerSelection));
+    }
+}
+
+console.log(game ());
