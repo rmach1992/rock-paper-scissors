@@ -39,16 +39,31 @@ function playRound (playerSelection, computerSelection) {
 
 //Function to play a 5 round game
 function game(){
+    let playerWin = 0, computerWin = 0;
     for (let i = 0; i < 5; i++){
         const playerSelection = prompt("Please type in either rock, paper or scissors.").toLowerCase();
         //if (playerSelection !== "rock" || playerSelection !== "paper" || playerSelection !== "scissors") {
-        //const playerSelection = prompt("Invalid output. Please type in either rock, paper or scissors.")
+        //playerSelection = prompt("Invalid output. Please type in either rock, paper or scissors.")
         //}
         const computerSelection = computerPlay();
         console.log ("You selected", playerSelection);
         console.log ("The computer selected", computerSelection);
         console.log(playRound (playerSelection, computerSelection));
+        
+        if ((playRound (playerSelection, computerSelection)).startsWith("You Lose!")) {
+            computerWin += 1;
+        }
+        else if ((playRound (playerSelection, computerSelection)).startsWith("You Win!")) {
+            playerWin += 1;
+        }
     }
+    if (playerWin > computerWin) {
+        console.log ("You scored ", playerWin, " and the computer scored ", computerWin, ". You win.")
+    } 
+    else if (computerWin > playerWin) {
+        console.log ("You scored ", playerWin, " and the computer scored ", computerWin, ". The computer wins.")
+    }
+    else console.log ("You scored ", playerWin, " and the computer scored ", computerWin, ". It is a tie.")
 }
 
 console.log(game ());
