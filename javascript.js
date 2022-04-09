@@ -1,4 +1,6 @@
+//Select divs to display everything
 const results = document.querySelector('.results');
+const selection = document.querySelector('.selection');
 
 //Function that will return either rock paper or scissors
 function computerPlay() {
@@ -39,14 +41,14 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-//Function to play a 5 round game
-//function game(){
-//    let playerWin = 0, computerWin = 0;
-//    const computerSelection = computerPlay();
-//    console.log ("You selected", playerSelection);
-//    console.log ("The computer selected", computerSelection);
-//    console.log(playRound (playerSelection, computerSelection));
-//        
+//Function to display what the player and computer selected
+function showSelection(playerSelection, computerSelection){
+    selection.textContent = "You selected " + playerSelection + " and the computer selected " + computerSelection + ".";
+}
+
+//Function to track scores
+//function trackScores {
+//    let playerWin = 0, computerWin = 0   
 //    if ((playRound (playerSelection, computerSelection)).startsWith("You Lose!")) {
 //        computerWin += 1;
 //    }
@@ -61,22 +63,27 @@ function playRound (playerSelection, computerSelection) {
 //        console.log ("You scored ", playerWin, " and the computer scored ", computerWin, ". The computer wins.")
 //    }
 //    else console.log ("You scored ", playerWin, " and the computer scored ", computerWin, ". It is a tie.")
-
-//console.log(game ());
+//}
 
 //Event listener for the buttons
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
-    playRound ('rock', computerPlay());
+    const computerSelection = computerPlay();
+    showSelection('rock', computerSelection);
+    playRound ('rock', computerSelection);
 })
 
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', () => {
-    playRound ('paper', computerPlay());
+    const computerSelection = computerPlay();
+    showSelection('paper', computerSelection);
+    playRound ('paper', computerSelection);
 })
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () => {
-    playRound ('scissors', computerPlay());
+    const computerSelection = computerPlay();
+    showSelection('scissors', computerSelection);
+    playRound ('scissors', computerSelection);
 })
 
